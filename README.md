@@ -39,3 +39,28 @@ terragrunt apply
 ```
 
 Review the plan carefully before typing `yes` to create the resources. This will create the resources and save the terraform state file locally on your computer.
+
+To remove the resources, run:
+
+```
+terragrunt destroy
+```
+
+## Kubernetes
+
+To set up kubectl access to the newly created cluster, please refer to the official documentation:
+
+https://cloud.google.com/kubernetes-engine/docs/how-to/cluster-access-for-kubectl
+
+Once the GKE cluster is up and running and you have successfully added the credentials to your local kubeconfig, you can start deploying the necessary resources in the cluster.
+
+Navigate to `kubernetes/envs/gcp/europe-north1/dev` and simply run:
+
+```
+kubectl apply -k app/
+kubectl apply -k argocd/
+kubectl apply -k cert-manager/
+kubectl apply -k ingress-nginx/
+```
+It's recommended to apply these resources one by one so it's easier to debug, should something go wrong with the installation.
+
