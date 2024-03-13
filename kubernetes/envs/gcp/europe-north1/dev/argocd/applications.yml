@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: demo-app-1
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  destination:
+    name: in-cluster
+    namespace: app
+  project: app
+  source:
+    path: kubernetes/envs/gcp/europe-north1/dev/app
+    repoURL: https://github.com/raidli/demo-app-1
+    targetRevision: main
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true

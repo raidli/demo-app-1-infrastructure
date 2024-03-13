@@ -1,0 +1,13 @@
+- op: replace
+  path: /spec/template/spec/containers/0/args/1
+  value: --leader-election-namespace=cert-manager
+
+- op: replace
+  path: /spec/template/spec/containers/0/resources
+  value:
+    requests:
+      cpu: 100m
+      memory: 200Mi
+    limits:
+      cpu: 200m
+      memory: 300Mi

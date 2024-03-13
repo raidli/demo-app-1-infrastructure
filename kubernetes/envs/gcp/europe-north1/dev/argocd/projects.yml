@@ -1,0 +1,15 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: app
+spec:
+  sourceNamespaces:
+  - app
+  sourceRepos:
+  - https://github.com/raidli/demo-app-1
+  destinations:
+  - namespace: '!kube-system'
+    server: '*'
+  clusterResourceWhitelist:
+  - group: ''
+    kind: ''
