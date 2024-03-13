@@ -13,7 +13,7 @@ locals {
   env_name         = local.environment_vars.locals.env_name
   module_name      = basename(path_relative_to_include())
   workspace_suffix = local.workspace_vars.locals.workspace_suffix
-  project_id     = local.workspace_vars.locals.project_id
+  project_id       = local.workspace_vars.locals.project_id
   credentials      = local.workspace_vars.locals.credentials
 }
 
